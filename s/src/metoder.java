@@ -1,6 +1,10 @@
 import java.text.*;
 public class metoder {
 	
+	/**
+	 * Creates space between every java character
+	 * @return New string with spaces
+	 */
 	public static String makeSpaceInString(String originalString){
 		
 		originalString = originalString.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
@@ -10,7 +14,10 @@ public class metoder {
 		return originalString;
 	}
 	
-	
+	/**
+	 * Counts words and symbols in a given string
+	 * @Return int containing amount of symbols and words 
+	 **/
 	public static int countWordsAndSymbols(String string) {
 		int counter = 0;
 		
