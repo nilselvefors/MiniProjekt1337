@@ -75,7 +75,7 @@ public class HashTabel {
 	
 	public static void readCode() throws FileNotFoundException {
 		String stringCodeString ="";
-		Scanner scan2 = new Scanner(new File("C:\\Users\\Markus\\Desktop\\javaKod.txt"));
+		Scanner scan2 = new Scanner(new File("javakod.txt"));
 		while (scan2.hasNext()) {
 			String s = scan2.next().trim();
 			makeHashValue(s);
@@ -86,7 +86,7 @@ public class HashTabel {
 	}
 	public static void readCode2() throws FileNotFoundException {
 		StringBuilder inString = new StringBuilder();
-		Scanner scan2 = new Scanner(new File("C:\\Users\\Markus\\Desktop\\javaKod.txt"));
+		Scanner scan2 = new Scanner(new File("javakod.txt"));
 		String aString = "";
 		while (scan2.hasNextLine()) {
 			inString.append(scan2.next().trim());
