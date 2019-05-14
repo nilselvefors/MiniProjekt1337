@@ -89,7 +89,6 @@ public class HashTabel {
 	public static void readCode2() throws FileNotFoundException {
 		StringBuilder inString = new StringBuilder();
 		Scanner scan2 = new Scanner(new File("javakod.txt"));
-		String aString = "";
 		while (scan2.hasNextLine()) {
 			inString.append(scan2.next().trim());
 			}
