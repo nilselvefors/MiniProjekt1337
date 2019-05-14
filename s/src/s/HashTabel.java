@@ -45,9 +45,47 @@ public class HashTabel {
 	}
 	
 	public int findPlace(String s) {
-		double a = makeHashValue(s);
-		return (int) a;
+		int find = (int)makeHashValue(s);
+		if (hash[find] == null) {
+			return -1;
+		}
+		if (hash[find].compareTo(s) == 0 ) {
+			return find;
+		}
+		else if (hash[find] != null ) {
+			while (hash[find] != null) {
+				if (hash[find].compareTo(s) == 0) {
+					return find;
+				}
+				find++;
+				
+			}
+		}
+		return find;
 		
+	}
+	
+	public boolean find(String s) {
+		int find = (int)makeHashValue(s);
+		if (hash[find] == null) {
+			return false;
+		}
+		if (hash[find].compareTo(s) == 0 ) {
+			return true;
+		}
+		else if (hash[find] != null ) {
+			while (hash[find] != null) {
+				if (hash[find].compareTo(s) == 0) {
+					return true;
+				}
+				find++;
+				
+			}
+		}
+		else if (hash[find] == null) {
+			return false;
+		}
+		return false;
 	}
 	
 	public static int makeHashValue(String s) {
