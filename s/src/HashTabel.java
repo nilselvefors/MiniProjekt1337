@@ -19,7 +19,7 @@ public class HashTabel {
 	public static HashTabel readKeyWords() {
 		HashTabel tesTabel = new HashTabel();
 		try{
-	        Scanner scan =new Scanner(new File("C:\\Users\\Markus\\Desktop\\JavaNyckelord.txt"));
+	        Scanner scan =new Scanner(new File("javaNyckelord.txt"));
 	        while (scan.hasNext()) {
 	        	String string = scan.next();
 	        	int hashValue = makeHashValue(string);
