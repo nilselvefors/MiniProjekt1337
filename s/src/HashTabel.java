@@ -1,4 +1,4 @@
-package MiniProjekt;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
