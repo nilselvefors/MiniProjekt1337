@@ -27,7 +27,7 @@ public class HashTabel {
 	        	int hashValue = makeHashValue(string);
 	        	if(tesTabel.hash[ hashValue] == null) {
 	        		tesTabel.hash[(hashValue)] = string;
-		        	System.out.println(string + " " + hashValue);
+//		        	System.out.println(string + " " + hashValue);
 	        	}
 	        	else {
 	        		int insted = hashValue ;
@@ -35,7 +35,7 @@ public class HashTabel {
 						insted++;
 					}
 					tesTabel.hash[insted] = string;
-		        	System.out.println(string + " " + insted + " been here");
+//		        	System.out.println(string + " " + insted + " been here");
 				}
 	        	
 			}
@@ -74,35 +74,10 @@ public class HashTabel {
 		
 		
 	}
-	
-	public static void readCode() throws FileNotFoundException {
-		String stringCodeString ="";
-		Scanner scan2 = new Scanner(new File("javakod.txt"));
-		while (scan2.hasNext()) {
-			String s = scan2.next().trim();
-			makeHashValue(s);
-			System.out.println(s);
-			String [] text = s.split(" " , 0);
-			
-		}
-	}
-	public static void readCode2() throws FileNotFoundException {
-		StringBuilder inString = new StringBuilder();
-		Scanner scan2 = new Scanner(new File("javakod.txt"));
-		while (scan2.hasNextLine()) {
-			inString.append(scan2.next().trim());
-			}
-			
 		
-	}
 	
-	public static String [] splitJavaCode(String string) {
-		String [] split = string.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
-		for (String string2 : split) {
-			System.out.println(string2);
-		}
-		return split;
-	}
+	
+	
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
@@ -110,6 +85,6 @@ public class HashTabel {
 //		splitJavaCode();
 //		readKeyWords();
 //		readCode();
-		readCode2();
+		
 	}
 }
