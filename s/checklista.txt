@@ -1,3 +1,11 @@
-                *Detta behöver vi göra *
+                *Detta behï¿½ver vi gï¿½ra *
+                
+                
+                
+                
+                
+                1. javanyckelord ---> hashtabell
+                2. Read doc1, if nuckelord/num.value --> count++
+                3. 
 -
 - 
