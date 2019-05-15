@@ -23,5 +23,15 @@ public class mainProgram {
 		doc1.PrintOutStringAndArrays();
 		System.out.println("end stuff here");
 		aHashTabel.printHashTable();
+		HashTabel hash1 = new HashTabel(50);
+		HashTabel hash2 = new HashTabel(50);
+		System.out.println("" + 
+		"");
+		hash1.addHash("string");
+		hash1.addHash("bok");
+		hash2.addHash("this is wrong");
+		hash1.printHashTable();
+		hash2.printHashTable();
+		
 	}
 }

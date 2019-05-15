@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class HashTabel {
 	private static String [] hash;
 	private static int hashSize ;
+	private int addCount;
 	
 	public HashTabel (int size) {
 		hashSize = size;
-		hash = new String[hashSize];
+		hash = new String[size];
+		addCount = 0;
 	}
 	
 	public void printHashTable() {
@@ -26,9 +28,14 @@ public class HashTabel {
 	}
 	
 	public void addHash(String string) {
+		if (addCount > hashSize/2) {
+			//make hash bigger jump to a prime in the furture
+			
+		}
 		int hashValue = makeHashValue(string);
     	if(hash[ hashValue] == null) {
     		hash[(hashValue)] = string;
+    		addCount++;
 //        	System.out.print(string + " " + hashValue);
     	}
     	else {
@@ -37,6 +44,7 @@ public class HashTabel {
 				insted++;
 			}
 			hash[insted] = string;
+			addCount++;
 //        	System.out.print(string + " " + insted + " been here");
         	
 		}
