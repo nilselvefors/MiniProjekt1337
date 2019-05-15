@@ -7,12 +7,16 @@ import java.text.StringCharacterIterator;
 import java.util.Scanner;
 
 public class ReadDocument {
-	private int counter;
-	private String docName;
+	private static int counter;
+	private static String docName;
+	private static String docNameSpace;
+	private static String[] docNameArray;
 	
 	
 	public ReadDocument(String fileName) throws FileNotFoundException {
 		docName = readDoc(fileName);
+		docNameSpace = docName.makeSpaceInString();
+		docNameArray = docNameSpace.splitSpaces();
 		counter = 0;
 	}
 	
@@ -26,21 +30,21 @@ public class ReadDocument {
 		
 	}
 	
-	public static String [] splitSpaces(String string) {
-		String [] split = string.trim().split(" ");
+	public static String [] splitSpaces() {
+		String [] split = docNameSpace.trim().split(" ");
 
 		return split;
 	}
 	
 	public static void compareToKeyWords(String [] stringArray, HashTabel keyWordsHashTabel) {
-		HashTabel  hashTabel = new HashTabel(53);
-		int counter = 0 ;
+		HashTabel  hashTabel = new HashTabel(301);
 		for (int i = 0; i < stringArray.length; i++) {
 			if (keyWordsHashTabel.find(stringArray[i]) || isNumeric(stringArray[i])){
 				counter++;
 			}
 			else {
 				hashTabel.addHash(stringArray[i]);
+				counter++;
 				
 			}
 		}
@@ -56,7 +60,7 @@ public class ReadDocument {
 		  }  
 		}
 	
-	public static String [] splitJavaCode(String string) {
+	public static String [] splitJavaCode() {
 		String [] split = string.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
 
 		return split;
@@ -73,9 +77,9 @@ public class ReadDocument {
 		
 		
 	}
-public static String makeSpaceInString(String originalString){
+public static String makeSpaceInString(){
 		
-		originalString = originalString.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
+		String originalString = docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
 
 		return originalString;
 	}
