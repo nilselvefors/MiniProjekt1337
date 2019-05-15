@@ -9,13 +9,11 @@ public class mainProgram {
 		document.splitSpaces();
 		document.splitJavaCode();
 		HashTabel keyword = metoder.readKeyWords("javanyckelord.txt");
-		HashTabel doc1hasHashTabel = ReadDocument.compareToKeyWords(keyword);
-		document.compareToKeyWords(keyword);
+		HashTabel doc1hasHashTabel = document.compareToKeyWords(keyword);
 		return doc1hasHashTabel;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-
 		
 		System.out.println("here is keyword in main");
 		System.out.println();
@@ -24,8 +22,6 @@ public class mainProgram {
 		System.out.println("-----------stuff here------------");
 		doc1.PrintOutStringAndArrays();
 		System.out.println("end stuff here");
-		
 		aHashTabel.printHashTable();
-
 	}
 }

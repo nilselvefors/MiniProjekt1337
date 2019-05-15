@@ -9,8 +9,8 @@ public class HashTabel {
 	private static int hashSize ;
 	
 	public HashTabel (int size) {
-		hash = new String[size];
-		hashSize = hash.length;
+		hashSize = size;
+		hash = new String[hashSize];
 	}
 	
 	public void printHashTable() {

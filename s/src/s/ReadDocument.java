@@ -45,35 +45,25 @@ public class ReadDocument {
 		
 	}
 	
-	public static void splitSpaces() {
+	public void splitSpaces() {
 		docNameArrayEverthing = docNameSpace.trim().split(" ");
 	}
 	
-	public static HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
+	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
 		keyWordsHashTabel.printHashTable();
 		System.out.println("this is knull");
 		for (int i = 0; i < docNameArrayEverthing.length; i++) {
 			if (keyWordsHashTabel.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
 				counter++;
+				System.out.println("true");
 			}
 			else {
 				hashTabel.addHash(docNameArrayEverthing[i]);
-
+				System.out.println("false");
 				counter++;
 			}
 		}
 		return hashTabel;
-		
-	}
-	public static void seetrueorfalse(HashTabel name) {
-		name.printHashTable();
-		System.out.println(" "+
-		"");
-		for (int i = 0; i < docNameArrayEverthing.length; i++) {
-			if (name.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
-				System.out.print(docNameArrayEverthing[i] + " ");
-			}
-		}
 	}
 	
 	public static boolean isNumeric(String str) { 
@@ -85,7 +75,7 @@ public class ReadDocument {
 		  }  
 		}
 	
-	public static void splitJavaCode() {
+	public void splitJavaCode() {
 		docNameArrayOnlyCode= docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
 	}
 	
@@ -101,7 +91,7 @@ public class ReadDocument {
 		
 		
 	}
-	public static void makeSpaceInString(){
+	public void makeSpaceInString(){
 		docNameSpace =  docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
 
 	}
