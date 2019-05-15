@@ -20,6 +20,10 @@ public class ReadDocument {
 		counter = 0;
 	}
 	
+	
+	
+	
+	
 	public static String readDoc(String fileName) throws FileNotFoundException {
 		StringBuilder string = new StringBuilder();
 		Scanner scan = new Scanner(new File(fileName));
@@ -65,6 +69,7 @@ public class ReadDocument {
 
 		return split;
 	}
+	
 	public static int countWordsAndSymbols(String string) {
 		int counter = 0;
 		
@@ -79,9 +84,9 @@ public class ReadDocument {
 	}
 public static String makeSpaceInString(){
 		
-		String originalString = docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
+	String originalString = docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
 
-		return originalString;
+	return originalString;
 	}
 
 }
