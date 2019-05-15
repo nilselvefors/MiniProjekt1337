@@ -19,7 +19,7 @@ public class HashTabel {
 		int hashValue = makeHashValue(string);
     	if(hash[ hashValue] == null) {
     		hash[(hashValue)] = string;
-//        	System.out.println(string + " " + hashValue);
+        	System.out.println(string + " " + hashValue);
     	}
     	else {
     		int insted = hashValue ;
@@ -27,7 +27,7 @@ public class HashTabel {
 				insted++;
 			}
 			hash[insted] = string;
-//        	System.out.println(string + " " + insted + " been here");
+        	System.out.println(string + " " + insted + " been here");
 		}
 		
 	}

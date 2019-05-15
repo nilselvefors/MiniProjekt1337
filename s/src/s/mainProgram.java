@@ -4,10 +4,17 @@ import java.io.FileNotFoundException;
 import java.util.Iterator;
 
 public class mainProgram {
+	public static void ak(ReadDocument document) {
+		document.makeSpaceInString();
+		document.splitSpaces();
+	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		HashTabel keyword = HashTabel.readKeyWords();
 		ReadDocument doc1 = new ReadDocument("javakod.txt");
+		ak(doc1);
+		ReadDocument.compareToKeyWords(keyword);
 //		HashTabel javaNyckelordHasTabell = new HashTabel(41);
 //		javaNyckelordHasTabell.readKeyWords();
 //		
