@@ -6,6 +6,8 @@ import java.util.Iterator;
 public class mainProgram {
 	
 	public static void main(String[] args) throws FileNotFoundException {
+		
+		ReadDocument doc1 = new ReadDocument("javakod.txt");
 //		HashTabel javaNyckelordHasTabell = new HashTabel(41);
 //		javaNyckelordHasTabell.readKeyWords();
 //		
