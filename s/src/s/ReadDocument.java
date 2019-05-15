@@ -15,6 +15,18 @@ public class ReadDocument {
 	private static String[] docNameArrayEverthing;
 	
 	
+	public void PrintOutStringAndArrays() {
+		System.out.println();
+		System.out.print("docNameArrayEverthing: ");
+		for(int i = 0; i  < docNameArrayEverthing.length; i++) {
+			System.out.print(docNameArrayEverthing[i]);
+		}
+		System.out.println();
+		System.out.println("docNameSpace: " + docNameSpace);
+		System.out.println("docName: " + docName);
+		System.out.println("counter: " + counter);
+	}
+	
 	public ReadDocument(String fileName) throws FileNotFoundException {
 		docName = readDoc(fileName);
 		counter = 0;
@@ -36,6 +48,7 @@ public class ReadDocument {
 	
 	public static void compareToKeyWords(HashTabel keyWordsHashTabel) {
 		HashTabel  hashTabel = new HashTabel(301);
+		keyWordsHashTabel.printHashTable();
 		for (int i = 0; i < docNameArrayEverthing.length; i++) {
 			if (keyWordsHashTabel.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
 				counter++;
@@ -45,6 +58,7 @@ public class ReadDocument {
 				counter++;
 			}
 		}
+		hashTabel.printHashTable();
 		
 	}
 	

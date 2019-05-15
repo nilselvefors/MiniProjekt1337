@@ -1,7 +1,5 @@
 package s;
 
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -15,11 +13,22 @@ public class HashTabel {
 		hashSize = hash.length;
 	}
 	
+	public void printHashTable() {
+		System.out.print("Hash table: ");
+		for(int i = 0; i < hash.length; i++) {
+			if(hash[i] != null) {
+				System.out.print(hash[i] + " ");
+			}
+			
+		}
+		
+	}
+	
 	public void addHash(String string) {
 		int hashValue = makeHashValue(string);
     	if(hash[ hashValue] == null) {
     		hash[(hashValue)] = string;
-        	System.out.println(string + " " + hashValue);
+//        	System.out.print(string + " " + hashValue);
     	}
     	else {
     		int insted = hashValue ;
@@ -27,7 +36,8 @@ public class HashTabel {
 				insted++;
 			}
 			hash[insted] = string;
-        	System.out.println(string + " " + insted + " been here");
+//        	System.out.print(string + " " + insted + " been here");
+        	
 		}
 		
 	}

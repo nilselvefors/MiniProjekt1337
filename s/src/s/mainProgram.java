@@ -12,9 +12,15 @@ public class mainProgram {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		HashTabel keyword = HashTabel.readKeyWords();
+		keyword.printHashTable();
+		System.out.println();
+		System.out.println(keyword.find("final"));
 		ReadDocument doc1 = new ReadDocument("javakod.txt");
 		ak(doc1);
-		ReadDocument.compareToKeyWords(keyword);
+		doc1.PrintOutStringAndArrays();
+		doc1.compareToKeyWords(keyword);
+		doc1.PrintOutStringAndArrays();
+		
 //		HashTabel javaNyckelordHasTabell = new HashTabel(41);
 //		javaNyckelordHasTabell.readKeyWords();
 //		
