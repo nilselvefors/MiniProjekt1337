@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class mainProgram {
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		HashTabel javaNyckelordHasTabell = new HashTabel();
+		HashTabel javaNyckelordHasTabell = new HashTabel(41);
 		javaNyckelordHasTabell.readKeyWords();
 		
 		String doc1OriginalString = metoder.readDoc("javakod.txt");

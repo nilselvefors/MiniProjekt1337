@@ -79,9 +79,9 @@ public class metoder {
 		}
 	
 	public static void main(String[] args) {
-		String test = "for(int i=0;)";
+		String test = "   for(  int   i   =  0  ;  )";
 		String newString = makeSpaceInString(test);
-		//System.out.println(newString);
+//		System.out.println(newString);
 		} 
 	}
 

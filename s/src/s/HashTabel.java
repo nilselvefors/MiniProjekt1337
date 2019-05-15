@@ -9,17 +9,18 @@ import java.util.Scanner;
 public class HashTabel {
 	private static String [] hash;
 	private static int hashSize ;
-	private int sizeOfFileTkn;
-	private String [] syntax = { "{, } , ( , ) , = , == , < , > , + , - , "};
 	
-	public HashTabel () {
-		hash = new String[307];
+	public HashTabel (int size) {
+		hash = new String[size];
 		hashSize = hash.length;
-		sizeOfFileTkn = 0;
+	}
+	
+	public void addHash(String string) {
+		
 	}
 	
 	public static HashTabel readKeyWords() {
-		HashTabel tesTabel = new HashTabel();
+		HashTabel tesTabel = new HashTabel(301);
 		try{
 	        Scanner scan =new Scanner(new File("javanyckelord.txt"));
 	        while (scan.hasNext()) {
@@ -119,7 +120,7 @@ public class HashTabel {
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		HashTabel tesTabel = new HashTabel();
+		HashTabel tesTabel = new HashTabel(22);
 //		splitJavaCode();
 //		readKeyWords();
 //		readCode();
