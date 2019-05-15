@@ -7,19 +7,23 @@ public class mainProgram {
 	public static void ak(ReadDocument document) {
 		document.makeSpaceInString();
 		document.splitSpaces();
+		document.splitJavaCode();
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		HashTabel keyword = HashTabel.readKeyWords();
+		HashTabel keyword = metoder.readKeyWords("javanyckelord.txt");
+		System.out.println("here is keyword in main");
 		keyword.printHashTable();
 		System.out.println();
 		System.out.println(keyword.find("final"));
 		ReadDocument doc1 = new ReadDocument("javakod.txt");
 		ak(doc1);
-		doc1.PrintOutStringAndArrays();
-		doc1.compareToKeyWords(keyword);
-		doc1.PrintOutStringAndArrays();
+		HashTabel doc1hasHashTabel = doc1.compareToKeyWords(keyword);
+		System.out.println("-----------stuf here------------");
+//		doc1.PrintOutStringAndArrays();
+//		doc1.PrintOutStringAndArrays();
+		doc1hasHashTabel.printHashTable();
 
 //		HashTabel javaNyckelordHasTabell = new HashTabel(41);
 //		javaNyckelordHasTabell.readKeyWords();

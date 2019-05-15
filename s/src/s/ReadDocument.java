@@ -13,7 +13,7 @@ public class ReadDocument {
 	private static String docName;
 	private static String docNameSpace;
 	private static String[] docNameArrayEverthing;
-	
+	private static String[] docNameArrayOnlyCode;
 	
 	public void PrintOutStringAndArrays() {
 		System.out.println();
@@ -46,8 +46,9 @@ public class ReadDocument {
 		docNameArrayEverthing = docNameSpace.trim().split(" ");
 	}
 	
-	public static void compareToKeyWords(HashTabel keyWordsHashTabel) {
+	public static HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) throws FileNotFoundException {
 		HashTabel  hashTabel = new HashTabel(301);
+		keyWordsHashTabel = metoder.readKeyWords("javanyckelord.txt");
 		keyWordsHashTabel.printHashTable();
 		for (int i = 0; i < docNameArrayEverthing.length; i++) {
 			if (keyWordsHashTabel.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
@@ -58,7 +59,7 @@ public class ReadDocument {
 				counter++;
 			}
 		}
-		hashTabel.printHashTable();
+		return hashTabel;
 		
 	}
 	
@@ -71,10 +72,8 @@ public class ReadDocument {
 		  }  
 		}
 	
-	public static String [] splitJavaCode() {
-		String [] split = docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
-
-		return split;
+	public static void splitJavaCode() {
+		docNameArrayOnlyCode= docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
 	}
 	
 	public static int countWordsAndSymbols(String string) {
@@ -90,7 +89,7 @@ public class ReadDocument {
 		
 	}
 	public static void makeSpaceInString(){
-		docNameSpace=  docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
+		docNameSpace =  docName.replaceAll("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] ]"," $0 ");
 
 	}
 

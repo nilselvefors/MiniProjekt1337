@@ -8,10 +8,15 @@ import java.text.StringCharacterIterator;
 import java.util.Scanner;
 public class metoder {
 	
-	
-	
-	
-	
+	public static HashTabel readKeyWords(String fileName) throws FileNotFoundException {
+		HashTabel keyWords = new HashTabel(301);
+		Scanner scan = new Scanner(new File(fileName));
+		while (scan.hasNext()) {
+			keyWords.addHash(scan.next());
+		}
+		return keyWords;
+		
+	}
 
 	
 	public static String removejavaKeyword(String javaString) {

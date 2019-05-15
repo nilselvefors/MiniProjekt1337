@@ -21,6 +21,7 @@ public class HashTabel {
 			}
 			
 		}
+		System.out.println();
 		
 	}
 	
