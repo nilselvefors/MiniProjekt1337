@@ -16,7 +16,40 @@ public class HashTabel {
 	}
 	
 	public void addHash(String string) {
+		int hashValue = makeHashValue(string);
+    	if(hash[ hashValue] == null) {
+    		hash[(hashValue)] = string;
+//        	System.out.println(string + " " + hashValue);
+    	}
+    	else {
+    		int insted = hashValue ;
+			while (hash[insted] !=null) {
+				insted++;
+			}
+			hash[insted] = string;
+//        	System.out.println(string + " " + insted + " been here");
+		}
 		
+	}
+
+	public boolean isPrime(int number) {
+		if(number % 2 == 0) {
+			return false;
+		}
+		for (int i = 3; i *i <= number ; i+=2) {
+			if(number % i == 0 ) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public int getNextPrime(int numberToCheck) {
+		for (int i = numberToCheck ; true ; i++){
+			if (isPrime(i)) {
+				return i;
+			}
+		}
 	}
 	
 	public static HashTabel readKeyWords() {
