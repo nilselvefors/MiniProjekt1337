@@ -34,12 +34,17 @@ public class ReadDocument {
 		System.out.println("docName: " + docName);
 		System.out.println("counter: " + counter);
 	}
-
+	/**
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public static String readDoc(String fileName) throws FileNotFoundException {
 		StringBuilder string = new StringBuilder();
 		Scanner scan = new Scanner(new File(fileName));
 		while (scan.hasNext()) {
-			string.append(scan.next().trim());
+			string.append(scan.nextLine().trim());
 		}
 		return string.toString();
 		
