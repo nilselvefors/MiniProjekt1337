@@ -51,15 +51,12 @@ public class ReadDocument {
 	
 	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
 		keyWordsHashTabel.printHashTable();
-		System.out.println("this is knull");
 		for (int i = 0; i < docNameArrayEverthing.length; i++) {
 			if (keyWordsHashTabel.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
 				counter++;
-				System.out.println("true");
 			}
 			else {
 				hashTabel.addHash(docNameArrayEverthing[i]);
-				System.out.println("false");
 				counter++;
 			}
 		}
