@@ -51,7 +51,7 @@ public class ReadDocument {
 	}
 	
 	public void splitSpaces() {
-		docNameArrayEverthing = docNameSpace.trim().split(" ");
+		docNameArrayEverthing = docNameSpace.trim().split("[\t\\s+]+");
 	}
 	
 	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
