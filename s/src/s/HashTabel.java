@@ -8,13 +8,13 @@ import java.util.Scanner;
 import org.omg.IOP.TaggedComponentHelper;
 
 public class HashTabel {
-	private String [] hash;
+	private WordObject [] hash;
 	private static int hashSize ;
 	private int addCount;
 	
 	public HashTabel (int size) {
 		hashSize = size;
-		hash = new String[size];
+		hash = new WordObject[size];
 		addCount = 0;
 	}
 	
@@ -30,26 +30,34 @@ public class HashTabel {
 		
 	}
 	
-	public void addHash(String string) {
+	public boolean addHash(String string) {
 		if (addCount > hashSize/2) {
 			//make hash bigger jump to a prime in the furture
 			increaseHash();
 			
 		}
+		WordObject newObject = new WordObject(string);
 		int hashValue = makeHashValue(string);
     	if(hash[ hashValue] == null) {
-    		hash[(hashValue)] = string;
+    		hash[(hashValue)] = newObject;
     		addCount++;
+    		newObject.add();
+    		return true;
 //        	System.out.print(string + " " + hashValue);
     	}
     	else {
     		int insted = hashValue ;
-			while (hash[insted] !=null) {
+			while (hash[insted] !=null ) {
+				if(hash[insted].compareTo(newObject) == 0) {
+					newObject.add();
+					return true;
+				}
 				insted++;
 				insted %= hashSize;
 			}
-			hash[insted] = string;
+			hash[insted] = newObject;
 			addCount++;
+			return true;
 //        	System.out.print(string + " " + insted + " been here");
         	
 		}
@@ -81,8 +89,8 @@ public class HashTabel {
 		moveHash(newHashSize);
 	}
 	public void moveHash(int newHashSize) {
-		String [] cleanArray = removeEmptySpacesInHash(hash);
-		hash = new String [newHashSize];
+		WordObject [] cleanArray = removeEmptySpacesInHash(hash);
+		hash = new WordObject [newHashSize];
 		hashSize = newHashSize;
 		hashAddArray(cleanArray, hash);
 		
@@ -104,44 +112,44 @@ public class HashTabel {
 			theArray[arrayIndex] = newElementVal;
 		}
 	}
-	public String[] removeEmptySpacesInHash (String [] arrarToClean) {
-		ArrayList<String> list = new ArrayList<String>();
-		for(String theString : arrarToClean) {
-			if (!theString.contentEquals(null) && !theString.equals("")) {
+	public String[] removeEmptySpacesInHash (WordObject [] arrarToClean) {
+		ArrayList<WordObject> list = new ArrayList<WordObject>();
+		for(WordObject theString : arrarToClean) {
+			if (!theString.equals(null) && !theString.equals("")) {
 				list.add(theString);
 			}
 		}
 		return list.toArray(new String [list.size()]);
 	}
 	
-	public static HashTabel readKeyWords() {
-		HashTabel tesTabel = new HashTabel(301);
-		try{
-	        Scanner scan =new Scanner(new File("javanyckelord.txt"));
-	        while (scan.hasNext()) {
-	        	String string = scan.next();
-	        	int hashValue = makeHashValue(string);
-	        	if(tesTabel.hash[ hashValue] == null) {
-	        		tesTabel.hash[(hashValue)] = string;
-//		        	System.out.println(string + " " + hashValue);
-	        	}
-	        	else {
-	        		int insted = hashValue ;
-					while (tesTabel.hash[insted] !=null) {
-						insted++;
-					}
-					tesTabel.hash[insted] = string;
-//		        	System.out.println(string + " " + insted + " been here");
-				}
-	        	
-			}
-	     }
-	     catch( Exception exp) {System.out.println(exp.toString());}
-		return tesTabel;
-	}
+//	public static HashTabel readKeyWords() {
+//		HashTabel tesTabel = new HashTabel(301);
+//		try{
+//	        Scanner scan =new Scanner(new File("javanyckelord.txt"));
+//	        while (scan.hasNext()) {
+//	        	String string = scan.next();
+//	        	int hashValue = makeHashValue(string);
+//	        	if(tesTabel.hash[ hashValue] == null) {
+//	        		tesTabel.hash[(hashValue)] = string;
+////		        	System.out.println(string + " " + hashValue);
+//	        	}
+//	        	else {
+//	        		int insted = hashValue ;
+//					while (tesTabel.hash[insted] !=null) {
+//						insted++;
+//					}
+//					tesTabel.hash[insted] = string;
+////		        	System.out.println(string + " " + insted + " been here");
+//				}
+//	        	
+//			}
+//	     }
+//	     catch( Exception exp) {System.out.println(exp.toString());}
+//		return tesTabel;
+//	}
 	
-	public boolean find(String s) {
-		int find = (int)makeHashValue(s);
+	public boolean find(WordObject s) {
+		int find = (int)makeHashValue(s.getObjectString());
 		if (hash[find] == null) {
 			return false;
 		}
@@ -172,8 +180,8 @@ public class HashTabel {
 		return (int) (hasValue % hashSize);
 	}
 	
-	public int findPlace(String s) {
-		int find = (int)makeHashValue(s);
+	public int findPlace(WordObject s) {
+		int find = (int)makeHashValue(s.getObjectString());
 		if (hash[find] == null) {
 			return -1;
 		}
