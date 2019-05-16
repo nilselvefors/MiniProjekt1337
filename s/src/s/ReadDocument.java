@@ -59,7 +59,6 @@ public class ReadDocument {
 	}
 	
 	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
-		keyWordsHashTabel.printHashTable();
 		for (int i = 0; i < docNameArrayEverthing.length; i++) {
 			if (keyWordsHashTabel.find(docNameArrayEverthing[i]) || isNumeric(docNameArrayEverthing[i])){
 				counter++;

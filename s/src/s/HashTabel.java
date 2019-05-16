@@ -29,33 +29,44 @@ public class HashTabel {
 		System.out.println();
 		
 	}
+	public boolean isEMpty() {
+		if(addCount == 0) {
+			return true;
+		}
+		return false;
+	}
 	
 	public void eval(HashTabel hashTable2) {
 		String wordDoc1, wordDoc2;
 		int wordCounterDoc1;
-		int wordCounterDoc2;
+		int wordCounterDoc2 = 0;
+		int wordSameCounter = 0;
+		double answer = -1;
 		
 		WordObject object = null;
 		
-		for(int i = 0; i < hash.length; i++) {
-			wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
-			wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
-			
-			if(hashTable2.find(wordDoc1)) {
-				object = hashTable2.findWordObject(wordDoc1);
-				wordDoc2 = object.getObjectString();           // saves word in Doc2
-				wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
-				
-			}
-			
-			
-			
-			
-			
-			
-			
-			
-		}
+//		for(int i = 0; i < hash.length; i++) {
+//			wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
+//			wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
+//			
+//			if(hashTable2.find(wordDoc1)) {
+//				object = hashTable2.findWordObject(wordDoc1);
+//				wordDoc2 = object.getObjectString();           // saves word in Doc2
+//				wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
+//				
+//			}
+//			if ( wordCounterDoc2 > wordCounterDoc1) {
+//				wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
+//			}
+//			else if (wordCounterDoc2 <  wordCounterDoc1) {
+//				wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
+//			}
+//			else {
+//				wordSameCounter += wordCounterDoc1;
+//			}	
+//		}
+//		answer = wordSameCounter / hashSize;
+//		return answer;
 		
 		
 	}

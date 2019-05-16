@@ -18,11 +18,21 @@ public class mainProgram {
 		System.out.println("here is keyword in main");
 		System.out.println();
 		ReadDocument doc1 = new ReadDocument("javakod.txt");
-		HashTabel aHashTabel = ak(doc1);
-		System.out.println("-----------stuff here------------");
+		ReadDocument doc2 = new ReadDocument("javakod.txt");
+		HashTabel hash1 = ak(doc1);
+		HashTabel hash2 = ak(doc2);
+		hash1.eval(hash2);
+		
+		System.out.println("-----------this is the fucking anser------------");
+		System.out.println("-----------this is the fucking anser------------" +
+		"");
+		
+		
+		
+		
 		doc1.PrintOutStringAndArrays();
 		System.out.println("end stuff here");
-		aHashTabel.printHashTable();
-		System.out.println(aHashTabel.find("Nils"));
+		hash1.printHashTable();
+		System.out.println(hash1.find("Nils"));
 	}
 }
