@@ -33,13 +33,20 @@ public class HashTabel {
 	public void eval(HashTabel hashTable2) {
 		String word;
 		int wordOccurrence;
+		//WordObject name; 
+		
 		for(int i = 0; i < hash.length; i++) {
 			word = hash[i].getObjectString();
+			WordObject object = null;
 			wordOccurrence = hash[i].getObjectWordCounter();
-			
 			if(hashTable2.find(word)) {
-				
+				object = hashTable2.findWordObject(word);
 			}
+			
+			
+			
+			
+			
 			
 			
 			
@@ -75,7 +82,7 @@ public class HashTabel {
     	else {
     		int insted = hashValue ;
 			while (hash[insted] !=null ) {
-				if(hash[insted].compareTo(newObject) == 0) {
+				if(hash[insted].compareStringTo(newObject) == 0) {
 					hash[insted].add();
 					return true;
 				}
@@ -248,17 +255,17 @@ public class HashTabel {
 			return null;
 		}
 
-	public int findPlace(WordObject s) {
-		int find = (int)makeHashValue(s.getObjectString());
+	public int findPlace(String s) {
+		int find = (int)makeHashValue(s);
 		if (hash[find] == null) {
 			return -1;
 		}
-		if (hash[find].compareTo(s) == 0 ) {
+		if (hash[find].getObjectString().compareTo(s) == 0 ) {
 			return find;
 		}
 		else if (hash[find] != null ) {
 			while (hash[find] != null) {
-				if (hash[find].compareTo(s) == 0) {
+				if (hash[find].getObjectString().compareTo(s) == 0) {
 					return find;
 				}
 				find++;

@@ -6,14 +6,14 @@ public class WordObject {
 	
 	public WordObject(String string) {
 		wordString = string;
-		wordOccurrence = 1;
+		wordOccurrence = 0;
 	}
 	
 	public void add() {
 		wordOccurrence++;
 	}
 	
-	public int compareTo(WordObject object) {
+	public int compareStringTo(WordObject object) {
 		return wordString.compareTo(object.getObjectString());
 	}
 	
