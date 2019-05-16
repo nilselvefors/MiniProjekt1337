@@ -33,7 +33,7 @@ public class ReadDocument {
 		System.out.println("docNameSpace: " + docNameSpace);
 		System.out.println("docName: " + docName);
 		System.out.println("counter: " + counter);
-		System.out.println("docNameArrayOnlyCode");
+		System.out.print("docNameArrayOnlyCode: ");
 		for (int i = 0; i < docNameArrayOnlyCode.length; i++) {
 			System.out.print(docNameArrayOnlyCode[i]+ " ");
 		}
@@ -55,7 +55,7 @@ public class ReadDocument {
 	}
 	
 	public void splitSpaces() {
-		docNameArrayEverthing = docNameSpace.trim().split("[\t\\s+]+");
+		docNameArrayEverthing = docNameSpace.trim().split("[\t \\\" \\' \\s+]+");
 	}
 	
 	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
@@ -82,7 +82,7 @@ public class ReadDocument {
 		}
 	
 	public void splitJavaCode() {
-		docNameArrayOnlyCode= docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
+		docNameArrayOnlyCode= docNameSpace.split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
 	}
 	
 	public static int countWordsAndSymbols(String string) {
