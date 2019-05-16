@@ -49,7 +49,7 @@ public class HashTabel {
     		int insted = hashValue ;
 			while (hash[insted] !=null ) {
 				if(hash[insted].compareTo(newObject) == 0) {
-					newObject.add();
+					hash[insted].add();
 					return true;
 				}
 				insted++;
@@ -95,31 +95,30 @@ public class HashTabel {
 		hashAddArray(cleanArray, hash);
 		
 	}
-	public void hashAddArray(String[] stringsForArray, String[] theArray) {
+	public void hashAddArray(WordObject[] cleanArray, WordObject[] hash2) {
 
-		for (int n = 0; n < stringsForArray.length; n++) {
+		for (int n = 0; n < cleanArray.length; n++) {
 
-			String newElementVal = stringsForArray[n];
-			int index = makeHashValue(newElementVal);
-			int arrayIndex = makeHashValue(newElementVal);
+			WordObject newElementVal = cleanArray[n];
+			int arrayIndex = makeHashValue(newElementVal.getObjectString());
 
-			while (theArray[arrayIndex] != null) {
+			while (hash2[arrayIndex] != null) {
 				++arrayIndex;
 				arrayIndex %= hashSize;
 
 				
 			}
-			theArray[arrayIndex] = newElementVal;
+			hash2[arrayIndex] = newElementVal;
 		}
 	}
-	public String[] removeEmptySpacesInHash (WordObject [] arrarToClean) {
+	public WordObject[] removeEmptySpacesInHash (WordObject [] arrarToClean) {
 		ArrayList<WordObject> list = new ArrayList<WordObject>();
 		for(WordObject theString : arrarToClean) {
 			if (!theString.equals(null) && !theString.equals("")) {
 				list.add(theString);
 			}
 		}
-		return list.toArray(new String [list.size()]);
+		return list.toArray(new WordObject [list.size()]);
 	}
 	
 //	public static HashTabel readKeyWords() {
@@ -148,17 +147,17 @@ public class HashTabel {
 //		return tesTabel;
 //	}
 	
-	public boolean find(WordObject s) {
-		int find = (int)makeHashValue(s.getObjectString());
+	public boolean find(String docNameArrayEverthing) {
+		int find = (int)makeHashValue(docNameArrayEverthing);
 		if (hash[find] == null) {
 			return false;
 		}
-		if (hash[find].compareTo(s) == 0 ) {
+		if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0 ) {
 			return true;
 		}
 		else if (hash[find] != null ) {
 			while (hash[find] != null) {
-				if (hash[find].compareTo(s) == 0) {
+				if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0) {
 					return true;
 				}
 				find++;
