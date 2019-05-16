@@ -33,15 +33,11 @@ public class ReadDocument {
 		System.out.println("docNameSpace: " + docNameSpace);
 		System.out.println("docName: " + docName);
 		System.out.println("counter: " + counter);
-		System.out.println("docNameArrayOnlyCode");
-		for (int i = 0; i < docNameArrayOnlyCode.length; i++) {
-			System.out.print(docNameArrayOnlyCode[i]+ " ");
-		}
 	}
 	/**
 	 * 
 	 * @param fileName
-	 * @return a string buildt on filename
+	 * @return
 	 * @throws FileNotFoundException
 	 */
 	public static String readDoc(String fileName) throws FileNotFoundException {
@@ -52,6 +48,10 @@ public class ReadDocument {
 		}
 		return string.toString();
 		
+	}
+	
+	public void splitSpaces() {
+		docNameArrayEverthing = docNameSpace.trim().split("[\t\\s+]+");
 	}
 	
 	public HashTabel compareToKeyWords(HashTabel keyWordsHashTabel) {
@@ -77,12 +77,8 @@ public class ReadDocument {
 		  }  
 		}
 	
-	public void splitSpaces() {
-		docNameArrayEverthing = docNameSpace.trim().split("[\t\\s+]+");
-	}
-
 	public void splitJavaCode() {
-		docNameArrayOnlyCode= docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ \" \' ]+");
+		docNameArrayOnlyCode= docNameSpace.trim().split("[\\{ \\} \\( \\) \\; \\= \\== \\< \\> \\+ \\- \\, \\[ \\] \\s+ ]+");
 	}
 	
 	public static int countWordsAndSymbols(String string) {
