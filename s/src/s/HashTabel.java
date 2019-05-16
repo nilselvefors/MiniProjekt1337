@@ -30,6 +30,33 @@ public class HashTabel {
 		
 	}
 	
+	public void eval(HashTabel hashTable2) {
+		String word;
+		int wordOccurrence;
+		for(int i = 0; i < hash.length; i++) {
+			word = hash[i].getObjectString();
+			wordOccurrence = hash[i].getObjectWordCounter();
+			
+			if(hashTable2.find(word)) {
+				
+			}
+			
+			
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public boolean addHash(String string) {
 		if (addCount > hashSize/2) {
 			//make hash bigger jump to a prime in the furture

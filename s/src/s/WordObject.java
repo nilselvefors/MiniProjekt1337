@@ -20,5 +20,8 @@ public class WordObject {
 	public String getObjectString() {
 		return wordString;
 	}
+	public int getObjectWordCounter() {
+		return wordOccurrence;
+	}
 
 }
