@@ -23,5 +23,6 @@ public class mainProgram {
 		doc1.PrintOutStringAndArrays();
 		System.out.println("end stuff here");
 		aHashTabel.printHashTable();
+		System.out.println(aHashTabel.find("Nils"));
 	}
 }
