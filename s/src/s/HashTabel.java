@@ -22,7 +22,7 @@ public class HashTabel {
 		System.out.print("Hash table: ");
 		for(int i = 0; i < hash.length; i++) {
 			if(hash[i] != null) {
-				System.out.print(hash[i] + " ");
+				System.out.print(hash[i].getObjectString() + ", ");
 			}
 			
 		}
