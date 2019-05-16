@@ -174,29 +174,6 @@ public class HashTabel {
 //		return tesTabel;
 //	}
 	
-	public boolean find(String docNameArrayEverthing) {
-		int find = (int)makeHashValue(docNameArrayEverthing);
-		if (hash[find] == null) {
-			return false;
-		}
-		if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0 ) {
-			return true;
-		}
-		else if (hash[find] != null ) {
-			while (hash[find] != null) {
-				if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0) {
-					return true;
-				}
-				find++;
-				
-			}
-		}
-		else if (hash[find] == null) {
-			return false;
-		}
-		return false;
-	}
-	
 	public static int makeHashValue(String s) {
 		int a = s.length();
 		double hasValue = 1;
@@ -206,6 +183,71 @@ public class HashTabel {
 		return (int) (hasValue % hashSize);
 	}
 	
+	//	public static HashTabel readKeyWords() {
+	//		HashTabel tesTabel = new HashTabel(301);
+	//		try{
+	//	        Scanner scan =new Scanner(new File("javanyckelord.txt"));
+	//	        while (scan.hasNext()) {
+	//	        	String string = scan.next();
+	//	        	int hashValue = makeHashValue(string);
+	//	        	if(tesTabel.hash[ hashValue] == null) {
+	//	        		tesTabel.hash[(hashValue)] = string;
+	////		        	System.out.println(string + " " + hashValue);
+	//	        	}
+	//	        	else {
+	//	        		int insted = hashValue ;
+	//					while (tesTabel.hash[insted] !=null) {
+	//						insted++;
+	//					}
+	//					tesTabel.hash[insted] = string;
+	////		        	System.out.println(string + " " + insted + " been here");
+	//				}
+	//	        	
+	//			}
+	//	     }
+	//	     catch( Exception exp) {System.out.println(exp.toString());}
+	//		return tesTabel;
+	//	}
+		
+		public boolean find(String docNameArrayEverthing) {
+			int find = (int)makeHashValue(docNameArrayEverthing);
+			if (hash[find] == null) {
+				return false;
+			}
+			if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0 ) {
+				return true;
+			}
+			else if (hash[find] != null ) {
+				while (hash[find] != null) {
+					if (hash[find].getObjectString().compareTo(docNameArrayEverthing) == 0) {
+						return true;
+					}
+					find++;
+					
+				}
+			}
+			return false;
+		}
+		public WordObject findWordObject(String string) {
+			int find = (int)makeHashValue(string);
+			if (hash[find] == null) {
+				return null;
+			}
+			if (hash[find].getObjectString().compareTo(string) == 0 ) {
+				return hash[find];
+			}
+			else if (hash[find] != null ) {
+				while (hash[find] != null) {
+					if (hash[find].getObjectString().compareTo(string) == 0) {
+						return hash[find];
+					}
+					find++;
+					
+				}
+			}
+			return null;
+		}
+
 	public int findPlace(WordObject s) {
 		int find = (int)makeHashValue(s.getObjectString());
 		if (hash[find] == null) {
