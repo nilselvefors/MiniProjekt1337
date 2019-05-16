@@ -9,3 +9,7 @@
                 3. 
 -
 - 
+
+				Ränka antalet ord som är samma i varje dokument och lägg dem i en counter 
+				
+				Räkna ut plagiatet genom att ta COUNTER/TOTALT ANTAL ORD I DOKUMENTET
