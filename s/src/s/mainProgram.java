@@ -32,6 +32,6 @@ public class mainProgram {
 		hash2.addHash("this is wrong");
 		hash1.printHashTable();
 		hash2.printHashTable();
-		
+		System.out.println(hash1.find("bok"));
 	}
 }

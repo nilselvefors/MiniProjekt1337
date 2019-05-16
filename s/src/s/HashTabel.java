@@ -2,10 +2,13 @@ package s;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.omg.IOP.TaggedComponentHelper;
+
 public class HashTabel {
-	private static String [] hash;
+	private String [] hash;
 	private static int hashSize ;
 	private int addCount;
 	
@@ -30,6 +33,7 @@ public class HashTabel {
 	public void addHash(String string) {
 		if (addCount > hashSize/2) {
 			//make hash bigger jump to a prime in the furture
+			increaseHash();
 			
 		}
 		int hashValue = makeHashValue(string);
@@ -42,6 +46,7 @@ public class HashTabel {
     		int insted = hashValue ;
 			while (hash[insted] !=null) {
 				insted++;
+				insted %= hashSize;
 			}
 			hash[insted] = string;
 			addCount++;
@@ -71,6 +76,44 @@ public class HashTabel {
 		}
 	}
 	
+	public void increaseHash() {
+		int newHashSize = getNextPrime(hashSize+50);
+		moveHash(newHashSize);
+	}
+	public void moveHash(int newHashSize) {
+		String [] cleanArray = removeEmptySpacesInHash(hash);
+		hash = new String [newHashSize];
+		hashSize = newHashSize;
+		hashAddArray(cleanArray, hash);
+		
+	}
+	public void hashAddArray(String[] stringsForArray, String[] theArray) {
+
+		for (int n = 0; n < stringsForArray.length; n++) {
+
+			String newElementVal = stringsForArray[n];
+			int index = makeHashValue(newElementVal);
+			int arrayIndex = makeHashValue(newElementVal);
+
+			while (theArray[arrayIndex] != null) {
+				++arrayIndex;
+				arrayIndex %= hashSize;
+
+				
+			}
+			theArray[arrayIndex] = newElementVal;
+		}
+	}
+	public String[] removeEmptySpacesInHash (String [] arrarToClean) {
+		ArrayList<String> list = new ArrayList<String>();
+		for(String theString : arrarToClean) {
+			if (!theString.contentEquals(null) && !theString.equals("")) {
+				list.add(theString);
+			}
+		}
+		return list.toArray(new String [list.size()]);
+	}
+	
 	public static HashTabel readKeyWords() {
 		HashTabel tesTabel = new HashTabel(301);
 		try{
@@ -95,27 +138,6 @@ public class HashTabel {
 	     }
 	     catch( Exception exp) {System.out.println(exp.toString());}
 		return tesTabel;
-	}
-	
-	public int findPlace(String s) {
-		int find = (int)makeHashValue(s);
-		if (hash[find] == null) {
-			return -1;
-		}
-		if (hash[find].compareTo(s) == 0 ) {
-			return find;
-		}
-		else if (hash[find] != null ) {
-			while (hash[find] != null) {
-				if (hash[find].compareTo(s) == 0) {
-					return find;
-				}
-				find++;
-				
-			}
-		}
-		return find;
-		
 	}
 	
 	public boolean find(String s) {
@@ -150,21 +172,42 @@ public class HashTabel {
 		return (int) (hasValue % hashSize);
 	}
 	
-	public static int findHash(String s) {
-		int find = makeHashValue(s);
-		int search = find;
-		if (hash[find].contentEquals(s)) {
+	public int findPlace(String s) {
+		int find = (int)makeHashValue(s);
+		if (hash[find] == null) {
+			return -1;
+		}
+		if (hash[find].compareTo(s) == 0 ) {
 			return find;
 		}
-		else {
-			while(!hash[search].contentEquals(s)) {
-				search++;
+		else if (hash[find] != null ) {
+			while (hash[find] != null) {
+				if (hash[find].compareTo(s) == 0) {
+					return find;
+				}
+				find++;
+				
 			}
-			return search;
 		}
-		
+		return find;
 		
 	}
+
+//	public static int findHash(String s) {
+//		int find = makeHashValue(s);
+//		int search = find;
+//		if (hash[find].contentEquals(s)) {
+//			return find;
+//		}
+//		else {
+//			while(!hash[search].contentEquals(s)) {
+//				search++;
+//			}
+//			return search;
+//		}
+//		
+//		
+//	}
 		
 	
 	
