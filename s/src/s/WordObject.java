@@ -6,7 +6,7 @@ public class WordObject {
 	
 	public WordObject(String string) {
 		wordString = string;
-		wordOccurrence = 0;
+		wordOccurrence = 1;
 	}
 	
 	public void add() {

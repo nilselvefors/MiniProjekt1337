@@ -21,9 +21,10 @@ public class mainProgram {
 		ReadDocument doc2 = new ReadDocument("javakod.txt");
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
-		hash1.eval(hash2);
+		
 		
 		System.out.println("-----------this is the fucking anser------------");
+		System.out.println(hash1.eval(hash2));
 		System.out.println("-----------this is the fucking anser------------" +
 		"");
 		

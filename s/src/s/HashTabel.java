@@ -11,6 +11,7 @@ public class HashTabel {
 	private WordObject [] hash;
 	private static int hashSize ;
 	private int addCount;
+	private int addCountAndIfObjectStringIsSame;
 	
 	public HashTabel (int size) {
 		hashSize = size;
@@ -36,37 +37,39 @@ public class HashTabel {
 		return false;
 	}
 	
-	public void eval(HashTabel hashTable2) {
+	public long eval(HashTabel hashTable2) {
 		String wordDoc1, wordDoc2;
 		int wordCounterDoc1;
 		int wordCounterDoc2 = 0;
 		int wordSameCounter = 0;
-		double answer = -1;
+		long answer = -1;
 		
 		WordObject object = null;
 		
-//		for(int i = 0; i < hash.length; i++) {
-//			wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
-//			wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
-//			
-//			if(hashTable2.find(wordDoc1)) {
-//				object = hashTable2.findWordObject(wordDoc1);
-//				wordDoc2 = object.getObjectString();           // saves word in Doc2
-//				wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
-//				
-//			}
-//			if ( wordCounterDoc2 > wordCounterDoc1) {
-//				wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
-//			}
-//			else if (wordCounterDoc2 <  wordCounterDoc1) {
-//				wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
-//			}
-//			else {
-//				wordSameCounter += wordCounterDoc1;
-//			}	
-//		}
-//		answer = wordSameCounter / hashSize;
-//		return answer;
+		for(int i = 0; i < hash.length; i++) {
+			if (hash[i] != null ) {
+				wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
+				wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
+				
+				if(hashTable2.find(wordDoc1)) {
+					object = hashTable2.findWordObject(wordDoc1);
+					wordDoc2 = object.getObjectString();           // saves word in Doc2
+					wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
+					
+				}
+				if ( wordCounterDoc2 > wordCounterDoc1) {
+					wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
+				}
+				else if (wordCounterDoc2 <  wordCounterDoc1) {
+					wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
+				}
+				else {
+					wordSameCounter += wordCounterDoc1;
+				}	
+			}
+			}
+			answer = wordSameCounter / addCountAndIfObjectStringIsSame;
+		return (answer * 100);
 		
 		
 	}
@@ -91,7 +94,7 @@ public class HashTabel {
     	if(hash[ hashValue] == null) {
     		hash[(hashValue)] = newObject;
     		addCount++;
-    		newObject.add();
+    		addCountAndIfObjectStringIsSame++;
     		return true;
 //        	System.out.print(string + " " + hashValue);
     	}
@@ -100,6 +103,7 @@ public class HashTabel {
 			while (hash[insted] !=null ) {
 				if(hash[insted].compareStringTo(newObject) == 0) {
 					hash[insted].add();
+					addCountAndIfObjectStringIsSame++;
 					return true;
 				}
 				insted++;
@@ -107,6 +111,7 @@ public class HashTabel {
 			}
 			hash[insted] = newObject;
 			addCount++;
+			addCountAndIfObjectStringIsSame++;
 			return true;
 //        	System.out.print(string + " " + insted + " been here");
         	
