@@ -31,16 +31,21 @@ public class HashTabel {
 	}
 	
 	public void eval(HashTabel hashTable2) {
-		String word;
-		int wordOccurrence;
-		//WordObject name; 
+		String wordDoc1, wordDoc2;
+		int wordCounterDoc1;
+		int wordCounterDoc2;
+		
+		WordObject object = null;
 		
 		for(int i = 0; i < hash.length; i++) {
-			word = hash[i].getObjectString();
-			WordObject object = null;
-			wordOccurrence = hash[i].getObjectWordCounter();
-			if(hashTable2.find(word)) {
-				object = hashTable2.findWordObject(word);
+			wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
+			wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
+			
+			if(hashTable2.find(wordDoc1)) {
+				object = hashTable2.findWordObject(wordDoc1);
+				wordDoc2 = object.getObjectString();           // saves word in Doc2
+				wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
+				
 			}
 			
 			
