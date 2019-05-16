@@ -33,6 +33,10 @@ public class ReadDocument {
 		System.out.println("docNameSpace: " + docNameSpace);
 		System.out.println("docName: " + docName);
 		System.out.println("counter: " + counter);
+		System.out.println("docNameArrayOnlyCode");
+		for (int i = 0; i < docNameArrayOnlyCode.length; i++) {
+			System.out.print(docNameArrayOnlyCode[i]+ " ");
+		}
 	}
 	/**
 	 * 
