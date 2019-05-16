@@ -1,9 +1,6 @@
-   		if( a + 534  	 b  < 000 );  
-   		
-   		there 89
-   		
-   		int = 10;
-   		
-   		value;
-   		boolean 
-   		true;
+   		if( a + 534  	 b  < 000 ){
+   			a++;
+   			for(int i = 0; i< count ; i++){
+   				System.out.println("Nils is always late");
+   				}
+   		}

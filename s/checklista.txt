@@ -2,7 +2,7 @@
                 
                 
                 
-                
+                **Nils behover lara sig att komma i tid**
                 
                 1. javanyckelord ---> hashtabell
                 2. Read doc1, if nuckelord/num.value --> count++
