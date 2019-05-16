@@ -242,7 +242,6 @@ public class HashTabel {
 						return hash[find];
 					}
 					find++;
-					
 				}
 			}
 			return null;
