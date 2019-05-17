@@ -2,7 +2,10 @@ package s;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 import org.omg.IOP.TaggedComponentHelper;
@@ -10,6 +13,7 @@ import org.omg.IOP.TaggedComponentHelper;
 public class HashTabel {
 	private WordObject [] hash;
 	private static int hashSize ;
+	private ArrayList<Integer> it = new ArrayList<Integer>();
 	private int addCount;
 	private int addCountAndIfObjectStringIsSame;
 	
@@ -21,6 +25,13 @@ public class HashTabel {
 	}
 	public int getHowMannyAddedWordInTheHash() {
 		return addCount;
+	}
+	public void printQue() {
+		Collections.sort(it);
+		for (int i = 0; i < it.size(); i++) {
+			System.out.println(it.get(i));
+		}
+		
 	}
 	
 	public void printHashTable() {
@@ -94,6 +105,7 @@ public class HashTabel {
 		int hashValue = makeHashValue(string);
     	if(hash[ hashValue] == null) {
     		hash[(hashValue)] = newObject;
+    		it.add(hashValue);
     		addCount++;
     		addCountAndIfObjectStringIsSame++;
     		return true;
@@ -111,6 +123,7 @@ public class HashTabel {
 				insted %= hashSize;
 			}
 			hash[insted] = newObject;
+			it.add(insted);
 			addCount++;
 			addCountAndIfObjectStringIsSame++;
 			return true;

@@ -31,6 +31,7 @@ private static Scanner scan = new Scanner(System.in);
 		ReadDocument doc2 = new ReadDocument("javakod.txt");
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
+		hash1.printQue();
 		
 		System.out.println("-----------this is the fucking anser------------");
 //		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);
@@ -38,22 +39,5 @@ private static Scanner scan = new Scanner(System.in);
 		metoder.printTheAnswer();
 		System.out.println("-----------this is the fucking anser------------" +
 		"");
-		
-		
-		HashTabel tesTabel = new HashTabel(6);
-		tesTabel.addHash("string1");
-		tesTabel.addHash("string2");
-		tesTabel.addHash("strin3");
-		tesTabel.addHash("string4");
-		tesTabel.printHashTable();
-		System.out.println(tesTabel.getHowMannyAddedWordInTheHash());
-		System.out.println("-------------------------------------------");
-		tesTabel.addHash("string5");
-		tesTabel.addHash("string6");
-		tesTabel.addHash("string7");
-		
-		System.out.println(tesTabel.getHowMannyAddedWordInTheHash());
-		
-		tesTabel.printHashTable();
 	}
 }
