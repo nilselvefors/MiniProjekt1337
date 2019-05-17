@@ -12,7 +12,8 @@ import org.omg.IOP.TaggedComponentHelper;
 
 public class HashTabel {
 	private WordObject [] hash;
-	private static int hashSize ;
+	private int hashSize ;
+	private static int hashSizeStatic;
 	private ArrayList<Integer> it = new ArrayList<Integer>();
 	private int addCount;
 	private int addCountAndIfObjectStringIsSame;
@@ -22,6 +23,7 @@ public class HashTabel {
 		hashSize = size;
 		addCount = 0;
 		addCountAndIfObjectStringIsSame = 0;
+		hashSizeStatic = size;
 	}
 	public int getHowMannyAddedWordInTheHash() {
 		return addCount;
@@ -66,7 +68,6 @@ public class HashTabel {
 		int wordCounterDoc1;
 		int wordCounterDoc2 = 0;
 		int wordSameCounter = 0;
-		double answer = -1;
 		
 		WordObject object = null;
 		
@@ -74,11 +75,13 @@ public class HashTabel {
 			if (hash[i] != null ) {
 				wordDoc1 = hash[i].getObjectString(); 				// saves word in Doc1
 				wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
+				System.out.println(wordDoc1);
 				
 				if(hashTable2.find(wordDoc1)) {
 					object = hashTable2.findWordObject(wordDoc1);
-					wordDoc2 = object.getObjectString();           // saves word in Doc2
+					wordDoc2 = object.getObjectString();             // saves word in Doc2
 					wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
+					System.out.println(wordDoc2);
 				}
 				if ( wordCounterDoc2 > wordCounterDoc1) {
 					wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
@@ -90,10 +93,12 @@ public class HashTabel {
 					wordSameCounter += wordCounterDoc1;
 				}	
 			}
-			}
-			answer = wordSameCounter / addCountAndIfObjectStringIsSame;
-			System.out.println(wordSameCounter + " " +addCountAndIfObjectStringIsSame );
-			System.out.println(answer + "this is ");
+		}
+		//answer = wordSameCounter / addCountAndIfObjectStringIsSame ;
+		double answer  = 4 / 8;
+		System.out.println((double) 4 / 8);
+		System.out.println("word same counter" + wordSameCounter + " " + " addCountAndIfObjectStringIsSame "+ addCountAndIfObjectStringIsSame );
+		System.out.println(answer + "this is ");
 		return (answer * 100);
 		
 		
@@ -200,7 +205,7 @@ public class HashTabel {
 		for (int i = 0; i < a; i++) {
 			hasValue = hasValue * s.charAt(i)*Math.pow(2, a);
 		}
-		return (int) (hasValue % hashSize);
+		return (int) (hasValue % hashSizeStatic);
 	}
 		
 		public boolean find(String string) {
