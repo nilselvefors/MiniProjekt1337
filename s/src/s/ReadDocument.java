@@ -10,7 +10,7 @@ import java.text.StringCharacterIterator;
 import java.util.Scanner;
 
 public class ReadDocument {
-	private static int counter;	
+	private int counter;	
 	private String docName;
 	private String docNameSpace;
 	private  String[] docNameArrayEverthing;
