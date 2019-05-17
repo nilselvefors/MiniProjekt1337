@@ -27,21 +27,14 @@ private static Scanner scan = new Scanner(System.in);
 //		String doc2ChoiseString = scan.nextLine();
 //		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
 //		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
-		ReadDocument doc1 = new ReadDocument("javakod.txt");
-		ReadDocument doc2 = new ReadDocument("javakod.txt");
+		ReadDocument doc1 = new ReadDocument("doc2");
+		ReadDocument doc2 = new ReadDocument("doc1.txt");
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
-		hash1.printQue();
-		IteratorHash ithas = new IteratorHash(hash1);
-		int counter = 0;
-		while (ithas.hasNext()) {
-			System.out.println(ithas.next());
-			counter++;
-		}
-		System.out.println(counter);
-		System.out.println(hash1.size());
+		hash1.printHashTable();
+		hash2.printHashTable();
 		System.out.println("--------------------");
-		ithas.printObject();
+		
 		
 		System.out.println("-----------this is the fucking anser------------");
 //		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);

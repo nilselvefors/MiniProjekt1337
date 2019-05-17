@@ -1,0 +1,136 @@
+package labb3;
+
+import java.util.*;
+import java.util.LinkedList;
+
+import javax.xml.soap.Node;
+
+/**
+* Klassen SimpleLinkedList är en länkad lista som innehåller noder av objekt.
+* Första noden i listan innehåller inget objekt.
+*/
+
+public class SimpleLinkedList{
+   private ListNode header;
+   private int counter;
+ 
+   public SimpleLinkedList( ) {
+      header = new ListNode( null );
+      counter =0;
+   }
+ 
+ /**
+ Skapar en ny ListNode  med ett nytt objekt och lägger den i listan
+  */
+   public void insert (String theobj){
+	   
+      ListNode nynode = new ListNode(theobj);
+    
+      ListNode temp = header;
+      while(temp.next != null){
+         temp=temp.next;
+      }
+     
+      temp.next=nynode;
+      counter++;
+   }
+
+
+/*		 
+Ta bort noden som innehåller respektive objekt
+  */
+   public void remove(String theobj) {
+      ListNode node = header;
+     
+      while(node.next != null){
+         if(node.next.element.equals(theobj)){
+            node.next = node.next.next;
+            counter--;
+            break;
+         }
+         node = node.next;
+      }
+   }
+ 
+ /**
+ Skriver ut innehållet i listan
+  */
+   public void print() {
+	  
+      ListNode node = header.next;
+      //System.out.print(node);
+      while(node != null){
+         System.out.println(node.element);
+         node = node.next;
+      }
+   }   
+
+   public void insert2(String theobj ) {
+      ListNode nynode = new ListNode(theobj, header.next);
+      header.next = nynode;
+      counter++;
+   }
+ 
+	// Detta skall du göra 
+		// läger objekt på på plats index. Index får inte vara negativ eller större än listans storlek
+	public void insert (String obj, int index){
+		if(index < -1 || index >counter) {
+			System.out.println("Out of the range of the list");
+		}
+		else {
+			
+			ListNode temp = header;
+			
+			for(int i=0; temp !=null && i<index;i++) {
+				temp = temp.next;
+			}
+			ListNode nyNode = new ListNode(obj, temp.next);
+			temp.next=nyNode;
+			counter++;
+
+		}
+		}
+	
+		// Returnerar och tar bort ett objkt från lista
+	public String remove( int index){
+		if(index < -1 || index >counter) {
+			System.out.println("Out of the range of the list");
+		}
+
+		else {	
+			ListNode temp = header;
+			
+			for(int i=0; temp !=null && i<index-1;i++) {
+				temp = temp.next;
+			}
+			temp.next=temp.next.next;
+			counter--;
+			return temp.next.element; 
+
+		}
+		return null;
+		
+		
+		
+		 
+	}
+	
+	//returnerar storleken på listan. Lägg till i klasssen  en variabel för detta
+		 // uppdatera variabeln när det är fallet
+		 
+	public int size(){
+		return counter;
+	} 
+	
+
+	public String toString(){
+		ListNode nodes = header.next;
+		String s ="";
+		while(nodes !=null) {
+			s += nodes.element;
+			nodes = nodes.next;
+			if(nodes !=null) {
+				s += " ";
+			}
+
+}

@@ -61,12 +61,12 @@ public class HashTabel {
 		return false;
 	}
 	
-	public long eval(HashTabel hashTable2) {
+	public double eval(HashTabel hashTable2) {
 		String wordDoc1, wordDoc2;
 		int wordCounterDoc1;
 		int wordCounterDoc2 = 0;
 		int wordSameCounter = 0;
-		long answer = -1;
+		double answer = -1;
 		
 		WordObject object = null;
 		
@@ -93,6 +93,8 @@ public class HashTabel {
 			}
 			}
 			answer = wordSameCounter / addCountAndIfObjectStringIsSame;
+			System.out.println(wordSameCounter + " " +addCountAndIfObjectStringIsSame );
+			System.out.println(answer + "this is ");
 		return (answer * 100);
 		
 		
