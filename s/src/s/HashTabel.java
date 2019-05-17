@@ -81,18 +81,17 @@ public class HashTabel {
 					object = hashTable2.findWordObject(wordDoc1);
 					wordDoc2 = object.getObjectString();             // saves word in Doc2
 					wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
-				}
-				if (wordDoc2.equals(wordDoc1)) {
 					if ( wordCounterDoc2 > wordCounterDoc1) {
 						wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
-					}
+						}
 					else if (wordCounterDoc2 <  wordCounterDoc1) {
 						wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
-					}
+						}
 					else {
 						wordSameCounter += wordCounterDoc1;
-					}
+						}
 				}
+				
 					
 			}
 			double dividedByThis = 0;
@@ -219,6 +218,7 @@ public class HashTabel {
 			hasValue = hasValue * s.charAt(i)*Math.pow(2, a);
 		}
 		return (int) (hasValue % hashSizeStatic);
+		
 	}
 		
 		public boolean find(String string) {
