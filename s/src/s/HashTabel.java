@@ -2,11 +2,14 @@ package s;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
+
+import javax.naming.spi.DirStateFactory.Result;
 
 import org.omg.IOP.TaggedComponentHelper;
 
@@ -99,10 +102,16 @@ public class HashTabel {
 			else {
 				dividedByThis = hashTable2.getHowMannyAddedWordInTheHash();
 			}
+			
 		
-		double answer  = (double)wordSameCounter / dividedByThis ;
-		System.out.println();
-		System.out.println(wordSameCounter + " this isisiis " +addCountAndIfObjectStringIsSame+ " jdjbdffbdbjf" );
+			double answer  = (double)wordSameCounter / dividedByThis ;
+			System.out.println();
+			System.out.println(answer);
+			DecimalFormat showResultDecimalFormat = new DecimalFormat("##.##");
+			String formString = showResultDecimalFormat.format(answer*100);
+			System.out.println();
+			System.out.println(formString);
+			System.out.println();
 		return (answer * 100);
 		
 		
