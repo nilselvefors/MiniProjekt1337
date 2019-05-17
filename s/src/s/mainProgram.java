@@ -16,8 +16,8 @@ private static Scanner scan = new Scanner(System.in);
 		document.splitSpaces();
 		document.splitJavaCode();
 		HashTabel keyword = metoder.readKeyWords("javanyckelord.txt");
-		HashTabel doc1hasHashTabel = document.compareToKeyWords(keyword);
-		return doc1hasHashTabel;
+		HashTabel doc = document.compareToKeyWords(keyword);
+		return doc;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -27,20 +27,24 @@ private static Scanner scan = new Scanner(System.in);
 //		String doc2ChoiseString = scan.nextLine();
 //		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
 //		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
-		ReadDocument doc1 = new ReadDocument("doc2");
+		ReadDocument doc1 = new ReadDocument("javakod.txt");
 		ReadDocument doc2 = new ReadDocument("doc1");
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
-		hash1.printHashTable();
-		hash2.printHashTable();
-		System.out.println("--------------------");
-		
-		
-		System.out.println("-----------this is the fucking anser------------");
-//		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);
+		doc1.PrintOutStringAndArrays();
+		System.out.println();
+		System.out.println("------------------");
+		doc2.PrintOutStringAndArrays();
+//		hash1.printHashTable();
+//		hash2.printHashTable();
+//		System.out.println("--------------------");
+//		
+//		
+//		System.out.println("-----------this is the fucking anser------------");
+////		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);
 		System.out.print(hash1.eval(hash2));
-		metoder.printTheAnswer();
-		System.out.println("-----------this is the fucking anser------------" +
-		"");
+//		metoder.printTheAnswer();
+//		System.out.println("-----------this is the fucking anser------------" +
+//		"");
 	}
 }

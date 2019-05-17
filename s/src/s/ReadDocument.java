@@ -11,11 +11,11 @@ import java.util.Scanner;
 
 public class ReadDocument {
 	private static int counter;	
-	private static String docName;
-	private static String docNameSpace;
-	private static String[] docNameArrayEverthing;
-	private static String[] docNameArrayOnlyCode;
-	private static HashTabel hashTabel ;
+	private String docName;
+	private String docNameSpace;
+	private  String[] docNameArrayEverthing;
+	private  String[] docNameArrayOnlyCode;
+	private  HashTabel hashTabel ;
 	
 	public ReadDocument(String fileName) throws FileNotFoundException {
 		docName = readDoc(fileName);
@@ -44,7 +44,7 @@ public class ReadDocument {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	public static String readDoc(String fileName) throws FileNotFoundException {
+	public String readDoc(String fileName) throws FileNotFoundException {
 		StringBuilder string = new StringBuilder();
 		Scanner scan = new Scanner(new File(fileName));
 		while (scan.hasNext()) {
@@ -71,7 +71,7 @@ public class ReadDocument {
 		return hashTabel;
 	}
 	
-	public static boolean isNumeric(String str) { 
+	public boolean isNumeric(String str) { 
 		  try {  
 		    Double.parseDouble(str);  
 		    return true;
