@@ -28,7 +28,7 @@ private static Scanner scan = new Scanner(System.in);
 //		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
 //		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
 		ReadDocument doc1 = new ReadDocument("doc2");
-		ReadDocument doc2 = new ReadDocument("doc1.txt");
+		ReadDocument doc2 = new ReadDocument("doc1");
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
 		hash1.printHashTable();

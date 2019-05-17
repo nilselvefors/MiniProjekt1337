@@ -72,14 +72,13 @@ public class HashTabel {
 		
 		for(int i = 0; i < hash.length; i++) {
 			if (hash[i] != null ) {
-				wordDoc1 = hash[i].getObjectString();   			// saves word in Doc1
+				wordDoc1 = hash[i].getObjectString(); 				// saves word in Doc1
 				wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
 				
 				if(hashTable2.find(wordDoc1)) {
 					object = hashTable2.findWordObject(wordDoc1);
 					wordDoc2 = object.getObjectString();           // saves word in Doc2
 					wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
-					
 				}
 				if ( wordCounterDoc2 > wordCounterDoc1) {
 					wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
