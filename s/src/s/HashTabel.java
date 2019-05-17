@@ -26,7 +26,7 @@ public class HashTabel {
 		hashSizeStatic = size;
 	}
 	public int getHowMannyAddedWordInTheHash() {
-		return addCount;
+		return addCountAndIfObjectStringIsSame;
 	}
 	public void printQue() {
 		Collections.sort(it);
@@ -64,41 +64,45 @@ public class HashTabel {
 	}
 	
 	public double eval(HashTabel hashTable2) {
-		String wordDoc1, wordDoc2;
+		String wordDoc1, wordDoc2 = null;
 		int wordCounterDoc1;
 		int wordCounterDoc2 = 0;
 		int wordSameCounter = 0;
 		
 		WordObject object = null;
-		
-		for(int i = 0; i < hash.length; i++) {
-			if (hash[i] != null ) {
-				wordDoc1 = hash[i].getObjectString(); 				// saves word in Doc1
-				wordCounterDoc1 = hash[i].getObjectWordCounter();  // saves count in Doc1
-				System.out.println(wordDoc1);
+			for (int i = 0; i < it.size(); i++) {
+				wordDoc1 = hash[it.get(i)].getObjectString(); 				// saves word in Doc1
+				wordCounterDoc1 = hash[it.get(i)].getObjectWordCounter();  // saves count in Doc1
 				
 				if(hashTable2.find(wordDoc1)) {
 					object = hashTable2.findWordObject(wordDoc1);
 					wordDoc2 = object.getObjectString();             // saves word in Doc2
 					wordCounterDoc2 = object.getObjectWordCounter();// saves count in Doc2
-					System.out.println(wordDoc2);
 				}
-				if ( wordCounterDoc2 > wordCounterDoc1) {
-					wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
+				if (wordDoc2.equals(wordDoc1)) {
+					if ( wordCounterDoc2 > wordCounterDoc1) {
+						wordSameCounter += wordCounterDoc2 - wordCounterDoc1;
+					}
+					else if (wordCounterDoc2 <  wordCounterDoc1) {
+						wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
+					}
+					else {
+						wordSameCounter += wordCounterDoc1;
+					}
 				}
-				else if (wordCounterDoc2 <  wordCounterDoc1) {
-					wordSameCounter += wordCounterDoc1 - wordCounterDoc2;
-				}
-				else {
-					wordSameCounter += wordCounterDoc1;
-				}	
+					
 			}
-		}
-		//answer = wordSameCounter / addCountAndIfObjectStringIsSame ;
-		double answer  = 4 / 8;
-		System.out.println((double) 4 / 8);
-		System.out.println("word same counter" + wordSameCounter + " " + " addCountAndIfObjectStringIsSame "+ addCountAndIfObjectStringIsSame );
-		System.out.println(answer + "this is ");
+			double dividedByThis = 0;
+			if(addCountAndIfObjectStringIsSame > hashTable2.getHowMannyAddedWordInTheHash()) {
+				dividedByThis = addCountAndIfObjectStringIsSame;
+			}
+			else {
+				dividedByThis = hashTable2.getHowMannyAddedWordInTheHash();
+			}
+		
+		double answer  = (double)wordSameCounter / dividedByThis ;
+		System.out.println();
+		System.out.println(wordSameCounter + " this isisiis " +addCountAndIfObjectStringIsSame+ " jdjbdffbdbjf" );
 		return (answer * 100);
 		
 		
