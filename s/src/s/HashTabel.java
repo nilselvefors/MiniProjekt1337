@@ -33,6 +33,9 @@ public class HashTabel {
 		}
 		
 	}
+	public ArrayList<Integer> returnArrayList(){
+		return it;
+	}
 	
 	public void printHashTable() {
 		if (addCount == 0) {
@@ -257,8 +260,15 @@ public class HashTabel {
 		return find;
 		
 	}
-	public WordObject iterator() {
-		
-		return null;
+	public int size() {
+		return addCount;
+	}
+	public WordObject getObject (int get) {
+		if(hash[get] == null ) {
+			return null;
+		}
+		else {
+			return hash[get];
+		}
 	}
 }
