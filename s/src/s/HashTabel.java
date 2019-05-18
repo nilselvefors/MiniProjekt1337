@@ -28,9 +28,16 @@ public class HashTabel {
 		addCountAndIfObjectStringIsSame = 0;
 		hashSizeStatic = size;
 	}
+	/**
+	 * 
+	 * @return How many WordObjects and the counter of WordObject in HashTabel 
+	 */
 	public int getHowMannyAddedWordInTheHash() {
 		return addCountAndIfObjectStringIsSame;
 	}
+	/**
+	 * Print all the location of WordObject in the HasTabel
+	 */
 	public void printQue() {
 		Collections.sort(it);
 		for (int i = 0; i < it.size(); i++) {
@@ -38,10 +45,16 @@ public class HashTabel {
 		}
 		
 	}
+	/**
+	 * 
+	 * @return The ArrayList of the HashTabel
+	 */
 	public ArrayList<Integer> returnArrayList(){
 		return it;
 	}
-	
+	/**
+	 * Prints all the WordObjects String, if HAshTabel is empty it prints "HashTabel is Empty"
+	 */
 	public void printHashTable() {
 		if (addCount == 0) {
 			System.out.println("HashTabel is Empty");
@@ -59,13 +72,22 @@ public class HashTabel {
 		
 		
 	}
+	/**
+	 * 
+	 * @return True if HashTabel is empty otherwise False
+	 */
 	public boolean isEmpty() {
 		if(addCount == 0) {
 			return true;
 		}
 		return false;
 	}
-	
+	/**
+	 * 
+	 * @param hashTable2
+	 * Evaluating two HashTabel against each other 
+	 * @return The percent of plagiarism 
+	 */
 	public double eval(HashTabel hashTable2) {
 		String wordDoc1, wordDoc2 = null;
 		int wordCounterDoc1;
@@ -116,7 +138,13 @@ public class HashTabel {
 		
 	}
 	
-	
+	/**
+	 * @param string
+	 * Makes hash value for the string, makes a WordObject of the string and then places it in the Array, but if the 
+	 * place is already taken it checks the place to the right if it's available until it found a place and placing 
+	 * the string in the location
+	 * @returns true if added 
+	 */
 	public boolean addHash(String string) {
 		if (addCount >= (hashSize/3)) {
 			increaseHash();
@@ -153,7 +181,10 @@ public class HashTabel {
 		}
 		
 	}
-
+	/**
+	 * @param number
+	 * @return True if number is Prim number
+	 */
 	public boolean isPrime(int number) {
 		if(number % 2 == 0) {
 			return false;
@@ -165,7 +196,12 @@ public class HashTabel {
 		}
 		return true;
 	}
-	
+	/**
+	 *
+	 * @param numberToCheck
+	 * Takes a int value and then return the closest prime number that is higher.
+	 * @returns a primt number
+	 */
 	public int getNextPrime(int numberToCheck) {
 		for (int i = numberToCheck ; true ; i++){
 			if (isPrime(i)) {
@@ -173,7 +209,9 @@ public class HashTabel {
 			}
 		}
 	}
-	
+	/**
+	 * Increases HashTabel and moves the existing one to the new
+	 */
 	public void increaseHash() {
 		int newHashSize = getNextPrime(hashSize + (hashSize*2));
 		moveHash(newHashSize);
@@ -185,6 +223,11 @@ public class HashTabel {
 		hashAddArray(cleanArray);
 		
 	}
+	/**
+	 * 
+	 * @param cleanArray
+	 * Adds a array of WordObject in the HashTabel
+	 */
 	public void hashAddArray(WordObject[] cleanArray) {
 
 		for (int n = 0; n < cleanArray.length; n++) {
@@ -201,6 +244,9 @@ public class HashTabel {
 			hash[arrayIndex] = newElementVal;
 		}
 	}
+	/**
+	 * Takes all the WordObject in the HashTabel and make an WordObject array of it 
+	 */
 	public WordObject[] removeEmptySpacesInHash (WordObject [] arrarToClean) {
 		ArrayList<WordObject> list = new ArrayList<WordObject>();
 		for(WordObject theObject : arrarToClean) {
@@ -210,7 +256,12 @@ public class HashTabel {
 		}
 		return list.toArray(new WordObject [list.size()]);
 	}
-	
+	/**
+	 * 
+	 * @param s
+	 * Makes a hashvalue for the string 
+	 * @return a hashvalue
+	 */
 	public static int makeHashValue(String s) {
 		int a = s.length();
 		double hasValue = 1;
@@ -220,7 +271,11 @@ public class HashTabel {
 		return (int) (hasValue % hashSizeStatic);
 		
 	}
-		
+		/**
+		 * 
+		 * @param string
+		 * @return True if String is located in HashTabel otherwise returns False 
+		 */
 		public boolean find(String string) {
 			int find = (int)makeHashValue(string);
 			if (hash[find] == null) {
@@ -240,6 +295,11 @@ public class HashTabel {
 			}
 			return false;
 		}
+		/**
+		 * 
+		 * @param string
+		 * @return The WordObject whit the String string
+		 */
 		public WordObject findWordObject(String string) {
 			int find = (int)makeHashValue(string);
 			if (hash[find] == null) {
@@ -258,36 +318,50 @@ public class HashTabel {
 			}
 			return null;
 		}
-
-	public int findPlace(String s) {
-		int find = (int)makeHashValue(s);
-		if (hash[find] == null) {
-			return -1;
-		}
-		if (hash[find].getObjectString().compareTo(s) == 0 ) {
-			return find;
-		}
-		else if (hash[find] != null ) {
-			while (hash[find] != null) {
-				if (hash[find].getObjectString().compareTo(s) == 0) {
-					return find;
-				}
-				find++;
-				
+		/**
+		 * 
+		 * @param String 
+		 * @return The Location of the string s in the HasTabel 
+		 */
+		public int findPlace(String s) {
+			int find = (int)makeHashValue(s);
+			if (hash[find] == null) {
+				return -1;
 			}
+			if (hash[find].getObjectString().compareTo(s) == 0 ) {
+				return find;
+			}
+			else if (hash[find] != null ) {
+				while (hash[find] != null) {
+					if (hash[find].getObjectString().compareTo(s) == 0) {
+						return find;
+					}
+					find++;
+					
+				}
+			}
+			return find;
+			
 		}
-		return find;
-		
-	}
-	public int size() {
-		return addCount;
-	}
-	public WordObject getObject (int get) {
-		if(hash[get] == null ) {
-			return null;
+		/**
+		 * 
+		 * @return The size of how manny WordObject added
+		 */
+		public int size() {
+			return addCount;
 		}
-		else {
-			return hash[get];
-		}
+		/**
+		 * 
+		 * @param get
+		 * 
+		 * @return The WordObject at place get 
+		 */
+		public WordObject getObject (int get) {
+			if(hash[get] == null ) {
+				return null;
+			}
+			else {
+				return hash[get];
+			}
 	}
 }
