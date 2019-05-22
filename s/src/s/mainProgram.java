@@ -10,20 +10,25 @@ import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 import java.io.*;
 
 public class mainProgram {
+	
+	private static HashTabel keyWords;
+	public static HashTabel keyWords () throws FileNotFoundException {
+		return keyWords = metoder.readKeyWords("javanyckelord.txt");
+	}
 
 
-private static Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in);
 
 	public static HashTabel ak(ReadDocument document) throws FileNotFoundException {
 		document.makeSpaceInString();
 		document.splitSpaces();
 		document.splitJavaCode();
-		HashTabel keyword = metoder.readKeyWords("javanyckelord.txt");
-		HashTabel doc = document.compareToKeyWords(keyword);
+		HashTabel doc = document.compareToKeyWords(keyWords);
 		return doc;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
+		keyWords();
 //		metoder.choseTwoDocs();
 //		String doc1ChoiseString = scan.nextLine();
 //		System.out.println("-------------");
@@ -32,6 +37,7 @@ private static Scanner scan = new Scanner(System.in);
 //		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
 		ReadDocument doc1 = new ReadDocument("doc1");
 		ReadDocument doc2 = new ReadDocument("doc2");
+		
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
 //		hash1.printHashTable();

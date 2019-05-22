@@ -1,6 +1,7 @@
 package s;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.ArrayDeque;
@@ -347,8 +348,11 @@ public class HashTabel {
 		 * 
 		 * @return The size of how manny WordObject added
 		 */
-		public int size() {
+		public int sizeWords() {
 			return addCount;
+		}
+		public int sizeOfHashTabel() {
+			return hashSize;
 		}
 		/**
 		 * 
