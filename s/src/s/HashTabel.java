@@ -2,6 +2,7 @@ package s;
 
 import java.io.File;
 
+
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.ArrayDeque;
@@ -150,6 +151,9 @@ public class HashTabel {
 		if (addCount >= (hashSize/3)) {
 			increaseHash();
 			
+		}
+		if(string == null) {
+			return false;
 		}
 		WordObject newObject = new WordObject(string);
 		int hashValue = makeHashValue(string);
