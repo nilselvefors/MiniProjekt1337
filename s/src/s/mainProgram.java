@@ -29,27 +29,18 @@ public class mainProgram {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		keyWords();
-//		metoder.choseTwoDocs();
-//		String doc1ChoiseString = scan.nextLine();
-//		System.out.println("-------------");
-//		String doc2ChoiseString = scan.nextLine();
-//		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
-//		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
-		ReadDocument doc1 = new ReadDocument("doc3");
-		ReadDocument doc2 = new ReadDocument("doc4");
+		metoder.choseTwoDocs();
+		String doc1ChoiseString = scan.nextLine();
+		System.out.println("-------------");
+		String doc2ChoiseString = scan.nextLine();
+		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
+		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
+//		ReadDocument doc1 = new ReadDocument("doc3");
+//		ReadDocument doc2 = new ReadDocument("doc4");
 		
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
-//		hash1.printHashTable();
-//		hash2.printHashTable();
-//		System.out.println("--------------------");
-//		
-//		
-//		System.out.println("-----------this is the fucking anser------------");
-////		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);
+
 		hash1.eval(hash2);
-//		metoder.printTheAnswer();
-//		System.out.println("-----------this is the fucking anser------------" +
-//		"");
 	}
 }
