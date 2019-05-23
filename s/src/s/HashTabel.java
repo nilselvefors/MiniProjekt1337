@@ -23,6 +23,11 @@ public class HashTabel {
 	private int addCount;
 	private int addCountAndIfObjectStringIsSame;
 	
+	/**
+	 * 
+	 * @param size
+	 * Construct a HashTabel whit the size parameter 
+	 */
 	public HashTabel (int size) {
 		hash = new WordObject[size];
 		hashSize = size;
