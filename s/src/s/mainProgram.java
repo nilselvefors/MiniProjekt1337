@@ -35,8 +35,8 @@ public class mainProgram {
 //		String doc2ChoiseString = scan.nextLine();
 //		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
 //		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
-		ReadDocument doc1 = new ReadDocument("doc1");
-		ReadDocument doc2 = new ReadDocument("doc2");
+		ReadDocument doc1 = new ReadDocument("doc3");
+		ReadDocument doc2 = new ReadDocument("doc4");
 		
 		HashTabel hash1 = ak(doc1);
 		HashTabel hash2 = ak(doc2);
@@ -47,7 +47,7 @@ public class mainProgram {
 //		
 //		System.out.println("-----------this is the fucking anser------------");
 ////		metoder.theTwoComparedFilesResultat(doc1ChoiseString, doc2ChoiseString);
-		System.out.print(hash1.eval(hash2));
+		hash1.eval(hash2);
 //		metoder.printTheAnswer();
 //		System.out.println("-----------this is the fucking anser------------" +
 //		"");
