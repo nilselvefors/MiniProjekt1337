@@ -9,7 +9,7 @@ heapsort				O(nlog(N)) fungerar som ett "trÃ¤d" dÃ¤r de minsta vÃ¤rdena Ã¤r hÃ¶g
 
 Binary Search
 - Tidskomplexitet log(n) 
--körs T(n) = (n/2) +1 ggr
+-körs T(n) = (n/2) +1 ggr   för n > 1
 - den måste vara sorterad för att fungera
 -
 
