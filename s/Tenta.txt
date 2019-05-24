@@ -7,6 +7,11 @@ mergesort				O(nlog(N)) Halverar arrayen till mindre arrayer tills alla är uppd
 quicksort				O(nlog(N)) Använder sig av Pivot (Median of three). Flyttar pivot till slutet av array. kollar första Item från häger som är större än pivot och första item från vänster som är större än pivot. Jämför dessa med varandra och byter plats på dem om de krävs. 
 heapsort				O(nlog(N)) fungerar som ett "träd" där de minsta värdena är högst upp
 
+Binary Search
+- Tidskomplexitet log(n) 
+-k�rs T(n) = (n/2) +1 ggr
+- den m�ste vara sorterad f�r att fungera
+-
 
 
 Datastrukturer:
