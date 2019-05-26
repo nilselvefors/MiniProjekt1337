@@ -53,5 +53,15 @@ public class tenta {
 	 return mid; }
 	 return NOT_FOUND;
 	 }
+	
+	public  int check() {
+		int [] array = null;
+		for (int i = 0; i < array.length-1; i++) {
+			if(array[i] > array[i+1] )
+				return -1;
+			
+		}
+		return 0;
+	}
 
 }
