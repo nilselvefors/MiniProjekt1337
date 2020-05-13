@@ -1,37 +1,46 @@
 package s;
 
 import java.io.FileNotFoundException;
+
 import java.util.Iterator;
+import java.util.Scanner;
+
+import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
+
+import java.io.*;
 
 public class mainProgram {
+	
+	private static HashTabel keyWords;
+	public static HashTabel keyWords () throws FileNotFoundException {
+		return keyWords = metoder.readKeyWords("javanyckelord.txt");
+	}
+
+
+	private static Scanner scan = new Scanner(System.in);
+
 	public static HashTabel ak(ReadDocument document) throws FileNotFoundException {
 		document.makeSpaceInString();
 		document.splitSpaces();
 		document.splitJavaCode();
-		HashTabel keyword = metoder.readKeyWords("javanyckelord.txt");
-		HashTabel doc1hasHashTabel = document.compareToKeyWords(keyword);
-		return doc1hasHashTabel;
+		HashTabel doc = document.compareToKeyWords(keyWords);
+		return doc;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
+		keyWords();
+		metoder.choseTwoDocs();
+		String doc1ChoiseString = scan.nextLine();
+		System.out.println("-------------");
+		String doc2ChoiseString = scan.nextLine();
+		ReadDocument doc1 = new ReadDocument(doc1ChoiseString);
+		ReadDocument doc2 = new ReadDocument(doc2ChoiseString);
+//		ReadDocument doc1 = new ReadDocument("doc3");
+//		ReadDocument doc2 = new ReadDocument("doc4");
 		
-		System.out.println("here is keyword in main");
-		System.out.println();
-		ReadDocument doc1 = new ReadDocument("javakod.txt");
-		HashTabel aHashTabel = ak(doc1);
-		System.out.println("-----------stuff here------------");
-		doc1.PrintOutStringAndArrays();
-		System.out.println("end stuff here");
-		aHashTabel.printHashTable();
-		HashTabel hash1 = new HashTabel(50);
-		HashTabel hash2 = new HashTabel(50);
-		System.out.println("" + 
-		"");
-		hash1.addHash("string");
-		hash1.addHash("bok");
-		hash2.addHash("this is wrong");
-		hash1.printHashTable();
-		hash2.printHashTable();
-		
+		HashTabel hash1 = ak(doc1);
+		HashTabel hash2 = ak(doc2);
+
+		hash1.eval(hash2);
 	}
 }

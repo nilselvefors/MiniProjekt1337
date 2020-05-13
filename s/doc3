@@ -23,11 +23,6 @@ public class HashTabel {
 	private int addCount;
 	private int addCountAndIfObjectStringIsSame;
 	
-	/**
-	 * 
-	 * @param size
-	 * Construct a HashTabel whit the size parameter 
-	 */
 	public HashTabel (int size) {
 		hash = new WordObject[size];
 		hashSize = size;
@@ -134,10 +129,11 @@ public class HashTabel {
 		
 			double answer  = (double)wordSameCounter / dividedByThis ;
 			System.out.println();
+			System.out.println(answer);
 			DecimalFormat showResultDecimalFormat = new DecimalFormat("##.##");
 			String formString = showResultDecimalFormat.format(answer*100);
 			System.out.println();
-			System.out.println(formString + "%");
+			System.out.println(formString);
 			System.out.println();
 		return (answer * 100);
 		

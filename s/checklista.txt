@@ -2,10 +2,14 @@
                 
                 
                 
-                
+                **Nils behover lara sig att komma i tid**
                 
                 1. javanyckelord ---> hashtabell
                 2. Read doc1, if nuckelord/num.value --> count++
                 3. 
 -
 - 
+
+				Ränka antalet ord som är samma i varje dokument och lägg dem i en counter 
+				
+				Räkna ut plagiatet genom att ta COUNTER/TOTALT ANTAL ORD I DOKUMENTET

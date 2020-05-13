@@ -1,0 +1,24 @@
+Sorteringsalgorytmer:
+
+bubbelsort 				O(n^2) Jämför a[i] med a[i +1].
+insertsort				O(n^2) Placerar från osorterad array till sorterad array. Bra då elementen är typ sorterade och det inte finns för många pltser att söka på i arreyn
+selectionsort			O(n^2) Placerar MINSTA från osorterad array till sorterad array. Fungerar ungefär som insertsort. Bra då de inte finns fler platser än 30ish.
+mergesort				O(nlog(N)) Halverar arrayen till mindre arrayer tills alla är uppdelade separat. Lägger sedan tillbaka dem på samma sätt fast omvänt. KRÄVER MER MINNE ÄN VAD SOM TAS UPP AV ARRAYEN!!!!
+quicksort				O(nlog(N)) Använder sig av Pivot (Median of three). Flyttar pivot till slutet av array. kollar första Item från häger som är större än pivot och första item från vänster som är större än pivot. Jämför dessa med varandra och byter plats på dem om de krävs. 
+heapsort				O(nlog(N)) fungerar som ett "träd" där de minsta värdena är högst upp
+
+Binary Search
+- Tidskomplexitet log(n) 
+-k�rs T(n) = (n/2) +1 ggr   f�r n > 1
+- den m�ste vara sorterad f�r att fungera
+-
+
+
+Datastrukturer:
+KÖ 
+Stack
+List
+Linked list
+Array
+Hashtabell
+Träd
